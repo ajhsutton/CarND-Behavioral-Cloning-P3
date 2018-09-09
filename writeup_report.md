@@ -16,10 +16,10 @@ The goals / steps of this project are the following:
 
 [//]: # (Image References)
 
-[image1]: ./writupimages/CenterDriving.png "Center Driving"
-[image2]: ./writupimages/SteeringCommand.png "Steering Angle"
-[image3]: ./writupimages/MultiCamera.png "Multiple Views"
-[image4]: ./writupimages/recovery1.png "Recovery Image"
+[image1]: ./writeupimages/CenterDriving.png "Center Driving"
+[image2]: ./writeupimages/SteeringCommand.png "Steering Angle"
+[image3]: ./writeupimages/MultiCamera.png "Multiple Views"
+[image4]: ./writeupimages/recovery1.png "Recovery Image"
 
 
 ## Rubric Points
