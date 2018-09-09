@@ -97,10 +97,11 @@ At the end of the process, the vehicle is able to drive autonomously around the 
 The final network structure (along with output tensor sizes) was:
 
 | Model | Layers |
----
+| --- | --- |
 | Pre-Processing | lambda_6_input (None, 160, 320, 3) |
 | Pre-Processing | lambda_6 (None, 160, 320, 3) |
 | Pre-Processing | cropping2d_6 (None, 90, 320, 3) |
+| --- | --- |
 | VGG19 | block1_conv1 (None, 90, 320, 64) |
 | VGG19 | block1_conv2 (None, 90, 320, 64) |
 | VGG19 | block1_pool (None, 45, 160, 64) |
@@ -122,10 +123,12 @@ The final network structure (along with output tensor sizes) was:
 | VGG19 | block5_conv3 (None, 5, 20, 512) |
 | VGG19 | block5_conv4 (None, 5, 20, 512) |
 | VGG19 | block5_pool (None, 2, 10, 512) |
+| --- | --- |
 | Output | conv2d_1 (None, 2, 10, 256) |
 | Output |global_average_pooling2d_1 (None, 256) |
 | Output |dense_1 (None, 128) |
 | Output |dense_2 (None, 1) |
+| --- | --- |
 
 #### 3. Creation of the Training Set & Training Process
 
