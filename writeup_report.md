@@ -16,10 +16,10 @@ The goals / steps of this project are the following:
 
 [//]: # (Image References)
 
-[image1]: ./writupimages/CenterDriving.png "Center Driving"
-[image2]: ./writupimages/SteeringCommand.png "Steering Angle"
-[image3]: ./writupimages/MultiCamera.png "Multiple Views"
-[image4]: ./writupimages/recovery1.png "Recovery Image"
+[image1]: ./writeupimages/CenterDriving.png "Center Driving"
+[image2]: ./writeupimages/SteeringCommand.png "Steering Angle"
+[image3]: ./writeupimages/MultiCamera.png "Multiple Views"
+[image4]: ./writeupimages/recovery1.png "Recovery Image"
 
 
 ## Rubric Points
@@ -96,37 +96,39 @@ At the end of the process, the vehicle is able to drive autonomously around the 
 #### 2. Final Model Architecture
 The final network structure (along with output tensor sizes) was:
 
-Pre-PRocessing
-    lambda_6_input (None, 160, 320, 3)
-    lambda_6 (None, 160, 320, 3)
-    cropping2d_6 (None, 90, 320, 3)
-VGG19
-    block1_conv1 (None, 90, 320, 64)
-    block1_conv2 (None, 90, 320, 64)
-    block1_pool (None, 45, 160, 64)
-    block2_conv1 (None, 45, 160, 128)
-    block2_conv2 (None, 45, 160, 128)
-    block2_pool (None, 22, 80, 128)
-    block3_conv1 (None, 22, 80, 256)
-    block3_conv2 (None, 22, 80, 256)
-    block3_conv3 (None, 22, 80, 256)
-    block3_conv4 (None, 22, 80, 256)
-    block3_pool (None, 11, 40, 256)
-    block4_conv1 (None, 11, 40, 512)
-    block4_conv2 (None, 11, 40, 512)
-    block4_conv3 (None, 11, 40, 512)
-    block4_conv4 (None, 11, 40, 512)
-    block4_pool (None, 5, 20, 512)
-    block5_conv1 (None, 5, 20, 512)
-    block5_conv2 (None, 5, 20, 512)
-    block5_conv3 (None, 5, 20, 512)
-    block5_conv4 (None, 5, 20, 512)
-    block5_pool (None, 2, 10, 512)
-Output
-    conv2d_1 (None, 2, 10, 256)
-    global_average_pooling2d_1 (None, 256)
-    dense_1 (None, 128)
-    dense_2 (None, 1)
+| Model | Layers | Name |
+ --- | --- | ---
+| Pre-Processing | Input | lambda_6_input (None, 160, 320, 3) |
+| Pre-Processing | Normalization | lambda_6 (None, 160, 320, 3) |
+| Pre-Processing | Crop | cropping2d_6 (None, 90, 320, 3) |
+ --- | --- 
+| VGG19 | Conv | block1_conv1 (None, 90, 320, 64) |
+| VGG19 | Conv | block1_conv2 (None, 90, 320, 64) |
+| VGG19 | Pool | block1_pool (None, 45, 160, 64) |
+| VGG19 | Conv | block2_conv1 (None, 45, 160, 128) |
+| VGG19 | Conv | block2_conv2 (None, 45, 160, 128) |
+| VGG19 | Pool | block2_pool (None, 22, 80, 128) |
+| VGG19 | Conv | block3_conv1 (None, 22, 80, 256) |
+| VGG19 | Conv | block3_conv2 (None, 22, 80, 256) |
+| VGG19 | Conv | block3_conv3 (None, 22, 80, 256) |
+| VGG19 | Conv | block3_conv4 (None, 22, 80, 256) |
+| VGG19 | Pool | block3_pool (None, 11, 40, 256) |
+| VGG19 | Conv | block4_conv1 (None, 11, 40, 512) |
+| VGG19 | Conv | block4_conv2 (None, 11, 40, 512) |
+| VGG19 | Conv | block4_conv3 (None, 11, 40, 512) |
+| VGG19 | Conv | block4_conv4 (None, 11, 40, 512) |
+| VGG19 | Pool | block4_pool (None, 5, 20, 512) |
+| VGG19 | Conv | block5_conv1 (None, 5, 20, 512) |
+| VGG19 | Conv | block5_conv2 (None, 5, 20, 512) |
+| VGG19 | Conv | block5_conv3 (None, 5, 20, 512) |
+| VGG19 | Conv | block5_conv4 (None, 5, 20, 512) |
+| VGG19 | Pool | block5_pool (None, 2, 10, 512) |
+ --- | --- 
+| Output | 1D Conv | conv2d_1 (None, 2, 10, 256) |
+| Output | Global Avg. Pool | global_average_pooling2d_1 (None, 256) |
+| Output | Dense (Hidden) | dense_1 (None, 128) |
+| Output |Dense (Output) | dense_2 (None, 1) |
+ --- | --- | ---
 
 #### 3. Creation of the Training Set & Training Process
 
